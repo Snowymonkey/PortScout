@@ -56,4 +56,4 @@ python portscout.py localhost google.com -l
 
 ## Notes
 
-If you suspect that your network is dropping your packets, it may be due to the high thread count. You can easily change this in the portscout.py file, set with `the max_workers=` parameter.
+If you suspect that your network is dropping your packets, it may be due to the high thread count. You can easily change this in the portscout.py file, set with the `max_workers=` parameter.
