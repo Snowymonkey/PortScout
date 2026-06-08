@@ -14,6 +14,6 @@ def connect(website, port):
     except socket.gaierror:
         return "No website found"
     except socket.timeout:
-        return f"{port} timeout"
+        return f"{port} timed out"
     except:
         return f"Port {port} is closed"

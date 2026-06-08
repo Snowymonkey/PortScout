@@ -31,13 +31,25 @@ group.add_argument(
     help="Returns the IP of given website."
 )
 
+parser.add_argument(
+    "-op",
+    "--open_ports",
+    action="store_true",
+    help="Only returns ports that are open."
+)
+
 args = parser.parse_args()
 
 if args.lookup:
     print(f"IP : {lookup(args.target)}")
 
 elif args.port:
-    connect(args.target, args.port)
+    result = connect(args.target, args.port)
+    if args.open_ports and "open" in result:
+        print(result)
+    elif not args.open_ports:
+        print(result)
+
 
 elif args.port_range:
     if "-" in args.port_range:
@@ -46,11 +58,14 @@ elif args.port_range:
             upperPort = int(args.port_range.split("-")[1])
             ports = list(range(lowerPort, upperPort+1))
 
-            with ThreadPoolExecutor(max_workers=100) as executor:
+            with ThreadPoolExecutor(max_workers=200) as executor:
                 results = executor.map(lambda p: connect(args.target, p), ports)
 
             for result in results:
-                print(result)
+                if args.open_ports and "open" in result:
+                    print(result)
+                elif not args.open_ports:
+                    print(result)
 
         except:
             print("Invalid port range")
