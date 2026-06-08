@@ -13,7 +13,7 @@
 
 1. Clone or download this repository to your local machine:
    ```bash
-   git clone [https://github.com/yourusername/PortScout.git](https://github.com/yourusername/PortScout.git)
+   git clone https://github.com/Snowymonkey/PortScout
    cd PortScout
 
 ## Usage
