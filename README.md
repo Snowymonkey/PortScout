@@ -12,9 +12,10 @@
 ## Installation
 
 Clone or download this repository to your local machine:
-   ```bash
-   git clone https://github.com/Snowymonkey/PortScout
-   cd PortScout
+```bash
+git clone https://github.com/Snowymonkey/PortScout
+cd PortScout
+```
 
 ## Usage
 
